@@ -133,7 +133,15 @@
 .hero-copy-anim{animation:heroIn .8s ease both}
 @keyframes heroIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .hero-dots{display:flex;align-items:center;gap:8px}
-.hero-dot{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:#ffffff59;cursor:pointer;transition:width .3s,background .3s}
+.hero-dot{width:9px;height:9px;border-radius:999px;border:0;padding:0;background:#ffffff8c;cursor:pointer;transition:width .3s,background .3s}
+.hero-controls{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:14px;white-space:nowrap}
+.hero-nav{width:36px;height:36px;border-radius:50%;border:1px solid #ffffff66;background:#ffffff1f;color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.hero-nav:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-2px)}
+.hero-light .hero-nav{border-color:#cad2e1;background:#fff;color:var(--navy)}
+.hero-light .hero-nav:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.hero-light .hero-dot{background:#c3cde0}
+[dir=rtl] .hero-nav svg{transform:scaleX(-1)}
+@media(max-width:640px){.hero-bottom>span:first-child{display:none}.hero-bottom{justify-content:center}.hero-controls{gap:10px}}
 .hero-dot.is-active{width:26px;background:var(--orange)}
 /* Slide claro (serviços): textos em azul-escuro */
 .hero.hero-light{color:var(--ink)}

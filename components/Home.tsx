@@ -102,6 +102,8 @@ function Hero({ d }: { d: Dict }) {
     <HeroSlider
       slides={slides}
       dotsLabel={d.heroDots}
+      prevLabel={d.heroPrev}
+      nextLabel={d.heroNext}
       bottom={h.bottom}
       goHref="#servicos"
       goAria={d.ui.goToServices}

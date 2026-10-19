@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, ArrowDown, Check, Globe2 } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Check, ChevronLeft, ChevronRight, Globe2 } from 'lucide-react';
 
 export type HeroSlide = {
   bg: string;
@@ -19,6 +19,8 @@ export type HeroSlide = {
 type Props = {
   slides: HeroSlide[];
   dotsLabel: string;
+  prevLabel: string;
+  nextLabel: string;
   bottom: string;
   goHref: string;
   goAria: string;
@@ -29,21 +31,21 @@ type Props = {
 
 const INTERVAL_MS = 7000;
 
-export function HeroSlider({ slides, dotsLabel, bottom, goHref, goAria, floatTop, floatBottom, proof }: Props) {
+export function HeroSlider({ slides, dotsLabel, prevLabel, nextLabel, bottom, goHref, goAria, floatTop, floatBottom, proof }: Props) {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused || slides.length < 2) return;
+    if (slides.length < 2) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = window.setInterval(() => setActive((a) => (a + 1) % slides.length), INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [paused, slides.length]);
+  }, [slides.length]);
 
+  const go = (delta: number) => setActive((a) => (a + delta + slides.length) % slides.length);
   const s = slides[active];
 
   return (
-    <section id="inicio" className={`hero ${s.theme === 'light' ? 'hero-light' : ''}`} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section id="inicio" className={`hero ${s.theme === 'light' ? 'hero-light' : ''}`}>
       <div className="hero-slides" aria-hidden="true">
         {slides.map((sl, i) => (
           <div
@@ -115,17 +117,25 @@ export function HeroSlider({ slides, dotsLabel, bottom, goHref, goAria, floatTop
       </div>
       <div className="hero-bottom container">
         <span>{bottom}</span>
-        <div className="hero-dots" role="group" aria-label={dotsLabel}>
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              className={`hero-dot ${i === active ? 'is-active' : ''}`}
-              aria-label={`${dotsLabel} ${i + 1}`}
-              aria-current={i === active ? 'true' : undefined}
-              onClick={() => setActive(i)}
-            />
-          ))}
+        <div className="hero-controls" role="group" aria-label={dotsLabel}>
+          <button type="button" className="hero-nav" aria-label={prevLabel} onClick={() => go(-1)}>
+            <ChevronLeft size={18} />
+          </button>
+          <div className="hero-dots">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`hero-dot ${i === active ? 'is-active' : ''}`}
+                aria-label={`${dotsLabel} ${i + 1}`}
+                aria-current={i === active ? 'true' : undefined}
+                onClick={() => setActive(i)}
+              />
+            ))}
+          </div>
+          <button type="button" className="hero-nav" aria-label={nextLabel} onClick={() => go(1)}>
+            <ChevronRight size={18} />
+          </button>
         </div>
         <a href={goHref} aria-label={goAria}>
           <ArrowDown size={19} />

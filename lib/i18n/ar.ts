@@ -215,6 +215,8 @@ export const ar: Dict = {
     channels: ['خدمة تجارية', 'أسئلة قبل التعاقد', 'عرض مخصص'],
   },
   heroDots: 'العروض الرئيسية',
+  heroPrev: 'الشريحة السابقة',
+  heroNext: 'الشريحة التالية',
   heroSlides: [
     {
       kicker: 'خدمات متكاملة',

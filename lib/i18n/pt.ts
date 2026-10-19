@@ -212,6 +212,8 @@ export const pt = {
     channels: ['Atendimento comercial', 'Dúvidas antes da contratação', 'Proposta sob medida'],
   },
   heroDots: 'Destaques',
+  heroPrev: 'Slide anterior',
+  heroNext: 'Próximo slide',
   heroSlides: [
     {
       kicker: 'SERVIÇOS COMPLETOS',

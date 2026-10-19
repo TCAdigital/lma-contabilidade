@@ -214,6 +214,8 @@ export const en: Dict = {
     channels: ['Sales support', 'Questions before you hire', 'Tailored proposal'],
   },
   heroDots: 'Highlights',
+  heroPrev: 'Previous slide',
+  heroNext: 'Next slide',
   heroSlides: [
     {
       kicker: 'COMPLETE SERVICES',
