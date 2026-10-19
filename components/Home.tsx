@@ -30,7 +30,7 @@ function WhatsAppIcon({ size = 26 }: { size?: number }) {
   );
 }
 
-function WhatsAppWidget({ d }: { d: Dict }) {
+export function WhatsAppWidget({ d }: { d: Dict }) {
   return (
     <a className="whatsapp-widget" href={whatsappUrl(d.ui.whatsappDefaultMessage)} target="_blank" rel="noopener noreferrer" aria-label={d.ui.whatsappAria(whatsapp.display)}>
       <span className="whatsapp-widget-label">

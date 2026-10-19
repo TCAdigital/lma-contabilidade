@@ -5,6 +5,7 @@ import type { Dict } from '@/lib/i18n/pt';
 import { Brand } from './Brand';
 import { LanguageSwitch } from './LanguageSwitch';
 import { ScrollExperience } from './ScrollExperience';
+import { WhatsAppWidget } from './Home';
 
 // Layout das páginas internas. Não tem link para a página inicial (logo e menu ficam fora).
 export function InternalPage({
@@ -95,6 +96,7 @@ export function InternalPage({
           </div>
         </div>
       </footer>
+      <WhatsAppWidget d={d} />
     </>
   );
 }
