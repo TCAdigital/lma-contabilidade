@@ -211,6 +211,23 @@ export const pt = {
     form: 'Enviar mensagem pelo formulário',
     channels: ['Atendimento comercial', 'Dúvidas antes da contratação', 'Proposta sob medida'],
   },
+  heroDots: 'Destaques',
+  heroSlides: [
+    {
+      kicker: 'SERVIÇOS COMPLETOS',
+      titleA: 'Contabilidade completa,',
+      titleEm: 'sem complicação.',
+      text: 'Da abertura de empresa à declaração de Imposto de Renda: uma equipe para cada etapa da sua rotina.',
+      cta: 'Conheça os serviços',
+    },
+    {
+      kicker: 'PRESENÇA GLOBAL',
+      titleA: 'Sua empresa',
+      titleEm: 'sem fronteiras.',
+      text: 'Abertura de empresas no Brasil, nos Estados Unidos e nos Emirados Árabes, com conexões comerciais internacionais.',
+      cta: 'Explore os mercados',
+    },
+  ],
   routes: {
     services: '/pt/servicos',
     contact: '/pt/fale-conosco',

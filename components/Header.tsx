@@ -1,11 +1,19 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Home, Briefcase, Crown, Route, Users, MessageCircle } from 'lucide-react';
 import type { Locale } from '@/lib/i18n';
 import { Brand } from './Brand';
 import { LanguageSwitch } from './LanguageSwitch';
 
 type NavItem = { label: string; href: string };
+
+// Um ícone por item do menu, na mesma ordem de lib/i18n/*.ts (nav)
+const navIcons = [Home, Briefcase, Crown, Route, Users, MessageCircle];
+
+function NavIcon({ i, size }: { i: number; size: number }) {
+  const Icon = navIcons[i];
+  return <Icon size={size} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />;
+}
 
 export type HeaderLabels = {
   navLabel: string;
@@ -41,8 +49,9 @@ export function Header({ locale, nav, labels }: { locale: Locale; nav: NavItem[]
         <div className="container header-inner">
           <Brand label={labels.brandAria} />
           <nav className="desktop-nav" aria-label={labels.navLabel}>
-            {nav.map((n) => (
+            {nav.map((n, i) => (
               <a href={n.href} key={n.href}>
+                <NavIcon i={i} size={15} />
                 {n.label}
               </a>
             ))}
@@ -68,7 +77,9 @@ export function Header({ locale, nav, labels }: { locale: Locale; nav: NavItem[]
         <div className="mobile-nav-items">
           {nav.map((n, i) => (
             <a key={n.href} href={n.href} onClick={() => setOpen(false)}>
-              <span>0{i + 1}</span>
+              <span className="mobile-nav-icon">
+                <NavIcon i={i} size={20} />
+              </span>
               {n.label}
               <ArrowUpRight size={20} />
             </a>

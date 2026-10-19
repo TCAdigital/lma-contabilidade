@@ -213,6 +213,23 @@ export const en: Dict = {
     form: 'Send a message through the form',
     channels: ['Sales support', 'Questions before you hire', 'Tailored proposal'],
   },
+  heroDots: 'Highlights',
+  heroSlides: [
+    {
+      kicker: 'COMPLETE SERVICES',
+      titleA: 'Full accounting,',
+      titleEm: 'without the hassle.',
+      text: 'From company formation to income tax returns: a team for every step of your routine.',
+      cta: 'Explore our services',
+    },
+    {
+      kicker: 'GLOBAL PRESENCE',
+      titleA: 'Your company',
+      titleEm: 'without borders.',
+      text: 'Company formation in Brazil, the United States and the United Arab Emirates, with international business connections.',
+      cta: 'Explore the markets',
+    },
+  ],
   routes: {
     services: '/en/servicos',
     contact: '/en/fale-conosco',

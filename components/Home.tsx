@@ -6,6 +6,7 @@ import { Brand } from './Brand';
 import { Header } from './Header';
 import { FaqList } from './FaqList';
 import { ScrollExperience } from './ScrollExperience';
+import { HeroSlider, type HeroSlide } from './HeroSlider';
 
 const icons = { Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, Globe2 };
 const benefitIcons = [ShieldCheck, Headphones, Lightbulb, Globe2];
@@ -59,67 +60,55 @@ function SectionHeading({ eyebrow, title, desc, light = false }: { eyebrow: stri
 
 function Hero({ d }: { d: Dict }) {
   const h = d.hero;
+  const wa = whatsappUrl(h.ctaPrimaryMessage);
+  const s2 = d.heroSlides[0];
+  const s3 = d.heroSlides[1];
+  const slides: HeroSlide[] = [
+    {
+      bg: '/hero.webp',
+      theme: 'dark',
+      first: true,
+      kicker: h.kicker,
+      titleA: h.titleA,
+      titleEm: h.titleEm,
+      text: h.text,
+      primary: { label: h.ctaPrimary, href: wa, external: true },
+      secondary: { label: h.ctaSecondary, href: '#servicos' },
+    },
+    {
+      bg: '/services-bg.webp',
+      pos: 'right center',
+      theme: 'light',
+      kicker: s2.kicker,
+      titleA: s2.titleA,
+      titleEm: s2.titleEm,
+      text: s2.text,
+      primary: { label: s2.cta, href: d.routes.services },
+      secondary: { label: h.ctaPrimary, href: wa, external: true },
+    },
+    {
+      bg: '/about.webp',
+      theme: 'dark',
+      shade: true,
+      kicker: s3.kicker,
+      titleA: s3.titleA,
+      titleEm: s3.titleEm,
+      text: s3.text,
+      primary: { label: s3.cta, href: d.routes.service('abertura-de-empresas') },
+      secondary: { label: h.ctaPrimary, href: wa, external: true },
+    },
+  ];
   return (
-    <section id="inicio" className="hero">
-      <div className="hero-orb hero-orb-one" />
-      <div className="hero-orb hero-orb-two" />
-      <div className="container hero-layout">
-        <div className="hero-copy">
-          <div className="hero-kicker">
-            <span className="live-pulse" /> {h.kicker}
-          </div>
-          <h1>
-            {h.titleA} <em>{h.titleEm}</em>
-          </h1>
-          <p>{h.text}</p>
-          <div className="hero-buttons">
-            <WhatsAppLink className="button button-orange" message={h.ctaPrimaryMessage}>
-              {h.ctaPrimary} <ArrowUpRight size={19} />
-            </WhatsAppLink>
-            <a href="#servicos" className="button button-ghost">
-              {h.ctaSecondary} <ArrowDown size={17} />
-            </a>
-          </div>
-          <div className="hero-proof">
-            <div className="avatar-stack">
-              <span>LM</span>
-              <span>BR</span>
-              <span>GL</span>
-            </div>
-            <div>
-              <strong>{h.proofTitle}</strong>
-              <small>{h.proofText}</small>
-            </div>
-          </div>
-        </div>
-        <div className="hero-art">
-          <div className="floating-card floating-card-top">
-            <span className="floating-icon">
-              <Globe2 size={19} />
-            </span>
-            <span>
-              <strong>{h.floatTop.title}</strong>
-              <small>{h.floatTop.text}</small>
-            </span>
-          </div>
-          <div className="floating-card floating-card-bottom">
-            <span className="floating-check">
-              <Check size={17} />
-            </span>
-            <span>
-              <strong>{h.floatBottom.title}</strong>
-              <small>{h.floatBottom.text}</small>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div className="hero-bottom container">
-        <span>{h.bottom}</span>
-        <a href="#servicos" aria-label={d.ui.goToServices}>
-          <ArrowDown size={19} />
-        </a>
-      </div>
-    </section>
+    <HeroSlider
+      slides={slides}
+      dotsLabel={d.heroDots}
+      bottom={h.bottom}
+      goHref="#servicos"
+      goAria={d.ui.goToServices}
+      floatTop={h.floatTop}
+      floatBottom={h.floatBottom}
+      proof={{ title: h.proofTitle, text: h.proofText }}
+    />
   );
 }
 
