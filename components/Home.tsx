@@ -1,5 +1,5 @@
 import { ArrowUpRight, ArrowRight, ArrowDown, Check, Globe2, Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, ShieldCheck, Headphones, Lightbulb, MapPin, ArrowRightCircle, Minus, BriefcaseBusiness, Plane, Compass, MoveUpRight, Star, CheckCircle2 } from 'lucide-react';
-import { serviceMeta, marketMeta, planComparisonFlags, planPopular, website, whatsapp, whatsappUrl } from '@/lib/content';
+import { serviceMeta, marketMeta, planComparisonFlags, planPopular, aboutImages, website, whatsapp, whatsappUrl } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
 import { Brand } from './Brand';
@@ -7,6 +7,7 @@ import { Header } from './Header';
 import { FaqList } from './FaqList';
 import { ScrollExperience } from './ScrollExperience';
 import { HeroSlider, type HeroSlide } from './HeroSlider';
+import { ImageSlider } from './ImageSlider';
 
 const icons = { Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, Globe2 };
 const benefitIcons = [ShieldCheck, Headphones, Lightbulb, Globe2];
@@ -185,6 +186,7 @@ function About({ d }: { d: Dict }) {
     <section id="quem-somos" className="section about-section">
       <div className="container about-grid">
         <div className="about-visual">
+          <ImageSlider images={aboutImages} label={a.float} className="about-slider" />
           <div className="about-float about-float-one">
             <Globe2 size={23} /> <span>{a.float}</span>
           </div>
@@ -293,7 +295,7 @@ function Expansion({ d }: { d: Dict }) {
   );
 }
 
-function Plans({ d }: { d: Dict }) {
+function Plans({ d, locale }: { d: Dict; locale: Locale }) {
   const p = d.plans;
   return (
     <section id="planos" className="section plans-section">
@@ -346,9 +348,9 @@ function Plans({ d }: { d: Dict }) {
                     </li>
                   ))}
                 </ul>
-                <WhatsAppLink className={`button ${popular ? 'button-orange' : 'button-outline'}`} message={p.planMessage(plan.name)}>
+                <a className={`button ${popular ? 'button-orange' : 'button-outline'}`} href={`/${locale}/contratar?plano=${plan.name.toLowerCase()}`}>
                   {p.talkAbout(plan.name)} <ArrowUpRight size={18} />
-                </WhatsAppLink>
+                </a>
               </div>
             );
           })}
@@ -633,7 +635,7 @@ export default function Home({ locale, dict: d }: { locale: Locale; dict: Dict }
         <Services d={d} />
         <About d={d} />
         <Expansion d={d} />
-        <Plans d={d} />
+        <Plans d={d} locale={locale} />
         <International d={d} />
         <Steps d={d} />
         <Faq d={d} />

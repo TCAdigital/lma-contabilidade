@@ -128,7 +128,7 @@ export const ar: Dict = {
     ribbon: 'الأكثر طلبًا',
     investment: 'الاستثمار',
     consult: 'عند الطلب',
-    talkAbout: (name: string) => `تحدث عن خطة ${name}`,
+    talkAbout: (name: string) => `اشترك في خطة ${name}`,
     planMessage: (name: string) => `مرحبًا! أود معرفة المزيد عن خطة ${name}.`,
     tableLabel: 'مقارنة بين خطتي BUSINESS وELITE',
     tableHead: 'ما المشمول',

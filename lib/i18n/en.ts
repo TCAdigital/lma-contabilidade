@@ -127,7 +127,7 @@ export const en: Dict = {
     ribbon: 'MOST POPULAR',
     investment: 'Investment',
     consult: 'On request',
-    talkAbout: (name: string) => `Talk about ${name}`,
+    talkAbout: (name: string) => `Get started with ${name}`,
     planMessage: (name: string) => `Hello! I would like to know more about the ${name} plan.`,
     tableLabel: 'Comparison between the BUSINESS and ELITE plans',
     tableHead: "What's included",

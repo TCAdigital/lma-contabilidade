@@ -125,7 +125,7 @@ export const pt = {
     ribbon: 'MAIS PROCURADO',
     investment: 'Investimento',
     consult: 'Sob consulta',
-    talkAbout: (name: string) => `Falar sobre o ${name}`,
+    talkAbout: (name: string) => `Contratar o ${name}`,
     planMessage: (name: string) => `Olá! Gostaria de saber mais sobre o plano ${name}.`,
     tableLabel: 'Comparação entre os planos BUSINESS e ELITE',
     tableHead: 'O que está incluído',
