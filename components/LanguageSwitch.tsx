@@ -29,12 +29,13 @@ function FlagUS() {
 }
 
 function FlagAE() {
+  // Desenho quadrado para o recorte circular manter a faixa vermelha (Emirados Árabes Unidos).
   return (
-    <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-      <rect width="1200" height="200" fill="#00732f" />
-      <rect y="200" width="1200" height="200" fill="#ffffff" />
-      <rect y="400" width="1200" height="200" fill="#000000" />
-      <rect width="300" height="600" fill="#ff0000" />
+    <svg viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+      <rect width="600" height="200" fill="#00732f" />
+      <rect y="200" width="600" height="200" fill="#ffffff" />
+      <rect y="400" width="600" height="200" fill="#000000" />
+      <rect width="160" height="600" fill="#ff0000" />
     </svg>
   );
 }

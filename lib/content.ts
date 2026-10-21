@@ -30,8 +30,8 @@ export const marketMeta = [
   { n: '03', img: '/market-emirados.webp', slug: 'abertura-de-empresa-no-emirados-arabes-unidos' },
 ];
 
-// Imagens do slider do card Quem Somos. Trocar/adicionar aqui conforme as artes finais (até 4).
-export const aboutImages = ['/about.webp'];
+// Imagens do slider do card Quem Somos, na ordem de exibição.
+export const aboutImages = ['/about.webp', '/about-china.webp', '/about-sao-paulo.webp', '/about-nova-york.webp', '/about-dubai.webp'];
 
 export const planPopular = [true, false];
 

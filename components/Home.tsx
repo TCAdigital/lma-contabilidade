@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight, ArrowDown, Check, Globe2, Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, ShieldCheck, Headphones, Lightbulb, MapPin, ArrowRightCircle, Minus, BriefcaseBusiness, Plane, Compass, MoveUpRight, Star, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, ArrowDown, Check, Globe2, Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, ShieldCheck, Headphones, Lightbulb, MapPin, ArrowRightCircle, Minus, BriefcaseBusiness, Plane, Compass, MoveUpRight, Star, CheckCircle2, MessagesSquare, ClipboardList, CalendarCheck, TrendingUp } from 'lucide-react';
 import { serviceMeta, marketMeta, planComparisonFlags, planPopular, aboutImages, website, whatsapp, whatsappUrl } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
@@ -12,6 +12,7 @@ import { ImageSlider } from './ImageSlider';
 const icons = { Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, Globe2 };
 const benefitIcons = [ShieldCheck, Headphones, Lightbulb, Globe2];
 const intlIcons = [Compass, BriefcaseBusiness, Plane];
+const stepIcons = [MessagesSquare, ClipboardList, CalendarCheck, TrendingUp];
 function ContactLink({ children, className = '', href }: { children: React.ReactNode; className?: string; href: string }) {
   return <a className={className} href={href}>{children}</a>;
 }
@@ -77,9 +78,8 @@ function Hero({ d }: { d: Dict }) {
       secondary: { label: h.ctaSecondary, href: '#servicos' },
     },
     {
-      bg: '/services-bg.webp',
-      pos: 'right center',
-      theme: 'light',
+      bg: '/hero-servicos.webp',
+      theme: 'dark',
       kicker: s2.kicker,
       titleA: s2.titleA,
       titleEm: s2.titleEm,
@@ -88,9 +88,8 @@ function Hero({ d }: { d: Dict }) {
       secondary: { label: h.ctaPrimary, href: wa, external: true },
     },
     {
-      bg: '/about.webp',
+      bg: '/hero-global.webp',
       theme: 'dark',
-      shade: true,
       kicker: s3.kicker,
       titleA: s3.titleA,
       titleEm: s3.titleEm,
@@ -424,13 +423,6 @@ function International({ d }: { d: Dict }) {
             <div className="world-ring r1" />
             <div className="world-ring r2" />
             <div className="world-ring r3" />
-            <div className="world-center">
-              L<span>.</span>
-            </div>
-            <div className="world-pin pin-br">{n.pins[0]}</div>
-            <div className="world-pin pin-us">{n.pins[1]}</div>
-            <div className="world-pin pin-ae">{n.pins[2]}</div>
-            <div className="world-pin pin-cn">{n.pins[3]}</div>
           </div>
           <div className="world-panel-bottom">
             <span>{n.panelBottom}</span>
@@ -459,16 +451,19 @@ function Steps({ d }: { d: Dict }) {
           desc={s.desc}
         />
         <div className="steps-grid">
-          {s.items.map((st, i) => (
+          {s.items.map((st, i) => {
+            const Icon = stepIcons[i];
+            return (
             <div className="step" key={st.title}>
               <div className="step-top">
-                <span>{`0${i + 1}`}</span>
+                <span className="step-icon"><Icon size={26} strokeWidth={1.7} /></span>
                 <ArrowRightCircle size={22} />
               </div>
               <h3>{st.title}</h3>
               <p>{st.text}</p>
             </div>
-          ))}
+            );
+          })}
         </div>
         <div className="steps-note">
           <FileCheck2 size={20} />
@@ -517,8 +512,6 @@ function FinalCTA({ d }: { d: Dict }) {
     <section id="contato" className="cta-section">
       <div className="container">
         <div className="cta-box">
-          <div className="cta-orbit" />
-          <div className="cta-dot" />
           <div className="cta-copy">
             <div className="eyebrow">
               <span className="eyebrow-dot" /> {c.eyebrow}
@@ -542,9 +535,6 @@ function FinalCTA({ d }: { d: Dict }) {
                 <span key={x}>{x}</span>
               ))}
             </div>
-          </div>
-          <div className="cta-art">
-            L<span>.</span>
           </div>
         </div>
       </div>
