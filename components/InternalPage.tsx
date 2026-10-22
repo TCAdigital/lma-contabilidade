@@ -31,11 +31,14 @@ export function InternalPage({
       <a href="#conteudo" className="skip-link">
         {d.ui.skip}
       </a>
-      <header className="header">
+      <header className="header header-internal">
         <div className="container header-inner">
           <Brand label={d.ui.brandAria} href={null} />
           <div className="header-actions">
             <LanguageSwitch current={locale} label={d.ui.languageLabel} path={path} />
+            <a className="button button-outline header-login" href={d.routes.login}>
+              {d.ui.loginCta}
+            </a>
             <a className="button button-navy header-cta" href={d.routes.contact}>
               {d.pages.talk} <ArrowUpRight size={17} />
             </a>

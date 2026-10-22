@@ -4,6 +4,7 @@ import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
 import { Brand } from './Brand';
 import { Header } from './Header';
+import { NavIcon } from './NavIcon';
 import { FaqList } from './FaqList';
 import { ScrollExperience } from './ScrollExperience';
 import { HeroSlider, type HeroSlide } from './HeroSlider';
@@ -558,8 +559,9 @@ function Footer({ d }: { d: Dict }) {
           <div className="footer-links">
             <div>
               <h4>{u.footerColExplore}</h4>
-              {d.nav.map((n) => (
-                <a key={n.href} href={n.href}>
+              {d.nav.map((n, i) => (
+                <a key={n.href} href={n.href} className="footer-nav-link">
+                  <NavIcon i={i} size={15} />
                   {n.label}
                 </a>
               ))}
@@ -614,6 +616,8 @@ export default function Home({ locale, dict: d }: { locale: Locale; dict: Dict }
           openMenu: d.ui.openMenu,
           closeMenu: d.ui.closeMenu,
           headerCta: d.ui.headerCta,
+          loginCta: d.ui.loginCta,
+          loginHref: d.routes.login,
           brandAria: d.ui.brandAria,
           mobileNote: d.ui.mobileNote,
           languageLabel: d.ui.languageLabel,

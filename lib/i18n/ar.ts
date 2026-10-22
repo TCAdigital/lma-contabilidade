@@ -17,6 +17,7 @@ export const ar: Dict = {
     openMenu: 'فتح القائمة',
     closeMenu: 'إغلاق القائمة',
     headerCta: 'تحدث مع LMA',
+    loginCta: 'تسجيل الدخول',
     mobileNote: 'خدمة تجارية وإجابة على استفساراتك قبل التعاقد.',
     brandAria: 'LMA Contabilidade - الصفحة الرئيسية',
     whatsappAria: (display: string) => `تحدث مع LMA عبر واتساب: ${display}`,
@@ -236,6 +237,7 @@ export const ar: Dict = {
   routes: {
     services: '/ar/servicos',
     contact: '/ar/fale-conosco',
+    login: '/ar/entrar',
     privacy: '/ar/politica-de-privacidade',
     terms: '/ar/termos-de-servico',
     service: (slug: string) => `/ar/servicos/${slug}`,

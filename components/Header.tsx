@@ -1,25 +1,20 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Menu, X, Home, Briefcase, Crown, Route, Users, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import type { Locale } from '@/lib/i18n';
 import { Brand } from './Brand';
 import { LanguageSwitch } from './LanguageSwitch';
+import { NavIcon } from './NavIcon';
 
 type NavItem = { label: string; href: string };
-
-// Um ícone por item do menu, na mesma ordem de lib/i18n/*.ts (nav)
-const navIcons = [Home, Briefcase, Crown, Route, Users, MessageCircle];
-
-function NavIcon({ i, size }: { i: number; size: number }) {
-  const Icon = navIcons[i];
-  return <Icon size={size} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />;
-}
 
 export type HeaderLabels = {
   navLabel: string;
   openMenu: string;
   closeMenu: string;
   headerCta: string;
+  loginCta: string;
+  loginHref: string;
   brandAria: string;
   mobileNote: string;
   languageLabel: string;
@@ -57,7 +52,10 @@ export function Header({ locale, nav, labels }: { locale: Locale; nav: NavItem[]
             ))}
           </nav>
           <div className="header-actions">
-            <LanguageSwitch current={locale} label={labels.languageLabel} />
+            <LanguageSwitch current={locale} label={labels.languageLabel} className="lang-switch-desktop" />
+            <a className="button button-outline header-login" href={labels.loginHref}>
+              {labels.loginCta}
+            </a>
             <a className="button button-navy header-cta" href="#contato">
               {labels.headerCta} <ArrowUpRight size={17} />
             </a>
