@@ -23,6 +23,9 @@ export const serviceMeta = [
   { icon: 'Globe2', num: '06', slug: 'negocios-internacionais' },
 ];
 
+// Ícones da coluna Serviços do rodapé, na mesma ordem dos textos em lib/i18n/*.ts (footerServices)
+export const footerServiceIcons = ['Building2', 'ChartNoAxesCombined', 'ArrowLeftRight', 'Globe2'] as const;
+
 // Mesma ordem dos textos em lib/i18n/*.ts (expansion.markets)
 export const marketMeta = [
   { n: '01', img: '/market-brasil.webp', slug: 'abertura-de-empresa-no-brasil' },

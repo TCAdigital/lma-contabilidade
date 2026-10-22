@@ -307,9 +307,9 @@ select.flow-input{padding-inline-end:12px;cursor:pointer}
 /* Botão Entrar no topo */
 .header-login{min-height:45px;padding:0 17px}
 
-/* Ícones do menu no rodapé (os mesmos do topo) */
-.footer-links a.footer-nav-link{display:inline-flex;align-items:center;gap:9px}
-.footer-links a.footer-nav-link .nav-icon{color:var(--orange);flex-shrink:0}
+/* Ícones do menu e dos serviços no rodapé (os mesmos do topo e dos cards) */
+.footer-links a.footer-icon-link{display:inline-flex;align-items:flex-start;gap:9px}
+.footer-links a.footer-icon-link .nav-icon{color:var(--orange);flex-shrink:0;margin-top:1.5px}
 
 /* Ícone centralizado no círculo do menu mobile */
 .mobile-nav-items>a .mobile-nav-icon svg{margin-inline-start:0}

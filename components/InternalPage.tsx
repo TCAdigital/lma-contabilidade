@@ -1,4 +1,4 @@
-import { ArrowUpRight, MapPin } from 'lucide-react';
+import { ArrowUpRight, Briefcase, MapPin } from 'lucide-react';
 import { website, whatsapp, whatsappUrl } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
@@ -85,7 +85,10 @@ export function InternalPage({
               </div>
               <div>
                 <h4>{d.ui.footerColServices}</h4>
-                <a href={d.routes.services}>{d.pages.servicesTitle}</a>
+                <a href={d.routes.services} className="footer-icon-link">
+                  <Briefcase size={15} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />
+                  {d.pages.servicesTitle}
+                </a>
               </div>
             </div>
           </div>

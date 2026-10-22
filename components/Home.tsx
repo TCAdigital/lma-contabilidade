@@ -1,5 +1,5 @@
 import { ArrowUpRight, ArrowRight, ArrowDown, Check, Globe2, Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, ShieldCheck, Headphones, Lightbulb, MapPin, ArrowRightCircle, Minus, BriefcaseBusiness, Plane, Compass, MoveUpRight, Star, CheckCircle2, MessagesSquare, ClipboardList, CalendarCheck, TrendingUp } from 'lucide-react';
-import { serviceMeta, marketMeta, planComparisonFlags, planPopular, aboutImages, website, whatsapp, whatsappUrl } from '@/lib/content';
+import { serviceMeta, footerServiceIcons, marketMeta, planComparisonFlags, planPopular, aboutImages, website, whatsapp, whatsappUrl } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
 import { Brand } from './Brand';
@@ -560,7 +560,7 @@ function Footer({ d }: { d: Dict }) {
             <div>
               <h4>{u.footerColExplore}</h4>
               {d.nav.map((n, i) => (
-                <a key={n.href} href={n.href} className="footer-nav-link">
+                <a key={n.href} href={n.href} className="footer-icon-link">
                   <NavIcon i={i} size={15} />
                   {n.label}
                 </a>
@@ -568,11 +568,15 @@ function Footer({ d }: { d: Dict }) {
             </div>
             <div>
               <h4>{u.footerColServices}</h4>
-              {d.footerServices.map((s) => (
-                <a key={s.href} href={s.href}>
-                  {s.label}
-                </a>
-              ))}
+              {d.footerServices.map((s, i) => {
+                const Icon = icons[footerServiceIcons[i]];
+                return (
+                  <a key={s.href} href={s.href} className="footer-icon-link">
+                    <Icon size={15} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />
+                    {s.label}
+                  </a>
+                );
+              })}
             </div>
             <div>
               <h4>{u.footerColContact}</h4>
