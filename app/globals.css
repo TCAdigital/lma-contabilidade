@@ -349,3 +349,6 @@ select.flow-input{padding-inline-end:12px;cursor:pointer}
 .about-media .about-visual{position:relative;z-index:1;height:440px}
 @media(max-width:900px){.about-media{order:2;max-width:550px;width:100%}.about-media .about-visual{height:370px}}
 @media(max-width:640px){.about-media{padding-top:60%}.about-map{left:-4%;width:108%}.about-media .about-visual{height:330px}}
+
+/* Bandeiras de idioma no header mobile, antes do Login: versão compacta para caber na linha */
+@media(max-width:640px){.brand{width:108px}.header-actions .lang-switch{gap:4px}.header-actions .lang-switch a{padding:2px}.header-actions .flag-chip{width:22px;height:22px}.header-login{padding:0 11px}.menu-toggle{padding:6px}}

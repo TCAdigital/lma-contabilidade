@@ -52,7 +52,7 @@ export function Header({ locale, nav, labels }: { locale: Locale; nav: NavItem[]
             ))}
           </nav>
           <div className="header-actions">
-            <LanguageSwitch current={locale} label={labels.languageLabel} className="lang-switch-desktop" />
+            <LanguageSwitch current={locale} label={labels.languageLabel} />
             <a className="button button-outline header-login" href={labels.loginHref}>
               {labels.loginCta}
             </a>
