@@ -185,14 +185,17 @@ function About({ d }: { d: Dict }) {
   return (
     <section id="quem-somos" className="section about-section">
       <div className="container about-grid">
-        <div className="about-visual">
-          <ImageSlider images={aboutImages} label={a.float} className="about-slider" />
-          <div className="about-float about-float-one">
-            <Globe2 size={23} /> <span>{a.float}</span>
-          </div>
-          <div className="about-visual-footer">
-            <span>{a.footerA}</span>
-            <span>{a.footerB}</span>
+        <div className="about-media">
+          <div className="about-map" aria-hidden="true" />
+          <div className="about-visual">
+            <ImageSlider images={aboutImages} label={a.float} className="about-slider" />
+            <div className="about-float about-float-one">
+              <Globe2 size={23} /> <span>{a.float}</span>
+            </div>
+            <div className="about-visual-footer">
+              <span>{a.footerA}</span>
+              <span>{a.footerB}</span>
+            </div>
           </div>
         </div>
         <div className="about-content">

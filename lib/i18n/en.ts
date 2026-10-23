@@ -16,7 +16,7 @@ export const en: Dict = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     headerCta: 'Talk to LMA',
-    loginCta: 'Sign in',
+    loginCta: 'Login',
     mobileNote: 'Sales support and questions before you hire.',
     brandAria: 'LMA Contabilidade - home',
     whatsappAria: (display: string) => `Talk to LMA on WhatsApp: ${display}`,

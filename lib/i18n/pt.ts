@@ -14,7 +14,7 @@ export const pt = {
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
     headerCta: 'Fale com a LMA',
-    loginCta: 'Entrar',
+    loginCta: 'Login',
     mobileNote: 'Atendimento comercial e dúvidas antes da contratação.',
     brandAria: 'LMA Contabilidade - início',
     whatsappAria: (display: string) => `Falar com a LMA no WhatsApp: ${display}`,
