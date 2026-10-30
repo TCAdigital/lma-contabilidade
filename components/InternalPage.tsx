@@ -1,11 +1,11 @@
 import { ArrowUpRight, Briefcase, MapPin } from 'lucide-react';
-import { website, whatsapp, whatsappUrl } from '@/lib/content';
+import { website } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
 import { Brand } from './Brand';
 import { LanguageSwitch } from './LanguageSwitch';
 import { ScrollExperience } from './ScrollExperience';
-import { WhatsAppWidget } from './Home';
+import { FooterContactLinks, WhatsAppWidget } from './Home';
 
 // Layout das páginas internas. Não tem link para a página inicial (logo e menu ficam fora).
 export function InternalPage({
@@ -75,12 +75,7 @@ export function InternalPage({
             <div className="footer-links">
               <div>
                 <h4>{d.ui.footerColContact}</h4>
-                <a href={whatsappUrl(d.ui.whatsappDefaultMessage)} target="_blank" rel="noopener noreferrer">
-                  {d.ui.footerWhatsapp} {whatsapp.display} <ArrowUpRight size={14} />
-                </a>
-                <a href={d.routes.contact}>{d.ui.footerForm}</a>
-                <a href={d.routes.privacy}>{d.ui.footerPrivacy}</a>
-                <a href={d.routes.terms}>{d.ui.footerTerms}</a>
+                <FooterContactLinks d={d} />
                 <span className="footer-address">{website.address}</span>
               </div>
               <div>

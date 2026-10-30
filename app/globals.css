@@ -335,13 +335,13 @@ select.flow-input{padding-inline-end:12px;cursor:pointer}
   .footer-links h4{font-size:12px;margin-bottom:4px}
   .footer-links a,.footer-address{font-size:14px;line-height:1.45}
   .footer-links>div:nth-child(3){grid-column:1/-1;padding-top:26px;border-top:1px solid #ffffff1a}
-  .footer-links>div:nth-child(3) a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border:1px solid #ffffff1f;border-radius:12px;background:#ffffff0a}
+  .footer-links>div:nth-child(3) a{display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:13px 16px;border:1px solid #ffffff1f;border-radius:12px;background:#ffffff0a}
   .footer-links>div:nth-child(3) a svg{color:var(--orange);flex-shrink:0}
   .footer-address{color:#94a3d0;margin-top:4px}
   .footer-bottom{align-items:center;text-align:center;gap:8px;font-size:11px}
 }
 @media(max-width:640px){.hero-bottom{justify-content:flex-end}}
-@media(max-width:640px){.footer-links>div:nth-child(3) a:nth-of-type(n+3){display:inline;padding:0;border:0;background:none;border-radius:0;font-size:13px;color:#94a3d0}}
+@media(max-width:640px){.footer-links>div:nth-child(3) a:nth-of-type(n+3){display:inline-flex;align-items:flex-start;padding:0;border:0;background:none;border-radius:0;font-size:13px;color:#94a3d0}}
 
 /* Quem Somos: mapa de fundo acima do card de fotos (o card sobrepõe a parte de baixo do mapa) */
 .about-media{position:relative;padding-top:60%}

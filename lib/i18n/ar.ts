@@ -237,6 +237,7 @@ export const ar: Dict = {
   routes: {
     services: '/ar/servicos',
     contact: '/ar/fale-conosco',
+    form: '/ar/contratar',
     login: '/ar/entrar',
     privacy: '/ar/politica-de-privacidade',
     terms: '/ar/termos-de-servico',

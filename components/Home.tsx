@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight, ArrowDown, Check, Globe2, Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, ShieldCheck, Headphones, Lightbulb, MapPin, ArrowRightCircle, Minus, BriefcaseBusiness, Plane, Compass, MoveUpRight, Star, CheckCircle2, MessagesSquare, ClipboardList, CalendarCheck, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, ArrowDown, Check, Globe2, Building2, ChartNoAxesCombined, ArrowLeftRight, FileCheck2, BadgeCheck, ShieldCheck, Headphones, Lightbulb, MapPin, ArrowRightCircle, Minus, BriefcaseBusiness, Plane, Compass, MoveUpRight, Star, CheckCircle2, MessagesSquare, ClipboardList, CalendarCheck, TrendingUp, ScrollText } from 'lucide-react';
 import { serviceMeta, footerServiceIcons, marketMeta, planComparisonFlags, planPopular, aboutImages, website, whatsapp, whatsappUrl } from '@/lib/content';
 import type { Locale } from '@/lib/i18n';
 import type { Dict } from '@/lib/i18n/pt';
@@ -26,11 +26,35 @@ function WhatsAppLink({ children, className = '', message }: { children: React.R
   );
 }
 
-function WhatsAppIcon({ size = 26 }: { size?: number }) {
+function WhatsAppIcon({ size = 26, className }: { size?: number; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <svg width={size} height={size} viewBox="0 0 32 32" className={className} aria-hidden="true" focusable="false">
       <path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.56a12.1 12.1 0 0 0 3.9.65h.01C22.68 28.09 28.08 22.7 28.08 16.06 28.08 8.4 22.68 3 16.04 3Zm0 22.2c-1.2 0-2.38-.18-3.5-.53l-.25-.08-4.82.93.96-4.7-.16-.26a10.06 10.06 0 0 1-1.55-5.52c0-5.57 4.53-10.1 10.1-10.1 5.57 0 10.1 4.53 10.1 10.1 0 5.57-4.53 10.1-10.1 10.1Zm5.54-7.56c-.3-.15-1.79-.88-2.07-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.64-.93-2.24-.24-.59-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.06 1.03-1.06 2.52 0 1.49 1.08 2.93 1.23 3.13.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.79-.73 2.04-1.44.25-.7.25-1.31.18-1.44-.08-.13-.28-.2-.58-.35Z" />
     </svg>
+  );
+}
+
+export function FooterContactLinks({ d }: { d: Dict }) {
+  const u = d.ui;
+  return (
+    <>
+      <a className="footer-icon-link" href={whatsappUrl(u.whatsappDefaultMessage)} target="_blank" rel="noopener noreferrer">
+        <WhatsAppIcon size={15} className="nav-icon" />
+        {u.footerWhatsapp} {whatsapp.display}
+      </a>
+      <a className="footer-icon-link" href={d.routes.form}>
+        <ClipboardList size={15} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />
+        {u.footerForm}
+      </a>
+      <a className="footer-icon-link" href={d.routes.privacy}>
+        <ShieldCheck size={15} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />
+        {u.footerPrivacy}
+      </a>
+      <a className="footer-icon-link" href={d.routes.terms}>
+        <ScrollText size={15} strokeWidth={1.7} className="nav-icon" aria-hidden="true" />
+        {u.footerTerms}
+      </a>
+    </>
   );
 }
 
@@ -583,14 +607,7 @@ function Footer({ d }: { d: Dict }) {
             </div>
             <div>
               <h4>{u.footerColContact}</h4>
-              <a href={whatsappUrl(u.whatsappDefaultMessage)} target="_blank" rel="noopener noreferrer">
-                {u.footerWhatsapp} {whatsapp.display} <ArrowUpRight size={14} />
-              </a>
-              <a href={d.routes.contact}>
-                {u.footerForm} <ArrowUpRight size={14} />
-              </a>
-              <a href={d.routes.privacy}>{u.footerPrivacy}</a>
-              <a href={d.routes.terms}>{u.footerTerms}</a>
+              <FooterContactLinks d={d} />
               <span className="footer-address">{website.address}</span>
             </div>
           </div>

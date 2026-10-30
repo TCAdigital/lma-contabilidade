@@ -234,6 +234,7 @@ export const pt = {
   routes: {
     services: '/pt/servicos',
     contact: '/pt/fale-conosco',
+    form: '/pt/contratar',
     login: '/pt/entrar',
     privacy: '/pt/politica-de-privacidade',
     terms: '/pt/termos-de-servico',
