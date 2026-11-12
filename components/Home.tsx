@@ -534,7 +534,7 @@ function Faq({ d }: { d: Dict }) {
   );
 }
 
-function FinalCTA({ d }: { d: Dict }) {
+function FinalCTA({ d, locale }: { d: Dict; locale: Locale }) {
   const c = d.cta;
   return (
     <section id="contato" className="cta-section">
@@ -554,7 +554,7 @@ function FinalCTA({ d }: { d: Dict }) {
               <WhatsAppLink className="button button-orange" message={c.whatsappMessage}>
                 {c.whatsapp} <ArrowUpRight size={19} />
               </WhatsAppLink>
-              <a className="cta-secondary" href={d.routes.contact}>
+              <a className="cta-secondary" href={`/${locale}/contratar?plano=business`}>
                 {c.form} <ArrowUpRight size={16} />
               </a>
             </div>
@@ -657,7 +657,7 @@ export default function Home({ locale, dict: d }: { locale: Locale; dict: Dict }
         <International d={d} />
         <Steps d={d} />
         <Faq d={d} />
-        <FinalCTA d={d} />
+        <FinalCTA d={d} locale={locale} />
       </main>
       <Footer d={d} />
       <WhatsAppWidget d={d} />
